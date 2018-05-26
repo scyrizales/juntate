@@ -56,8 +56,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (mEmailView.getText().toString().isEmpty() ||
                 mPasswordView.getText().toString().isEmpty()) {
             Snackbar.make(rlayout, "Login incompleto", Snackbar.LENGTH_LONG).show();
-        } else if (isEmailValid(mEmailView.getText().toString())) {
-            Snackbar.make(rlayout, "Email inválido", Snackbar.LENGTH_LONG).show();
         } else if (isPasswordValid(mPasswordView.getText().toString())) {
             Snackbar.make(rlayout, "Ingresar Password correctamente", Snackbar.LENGTH_LONG).show();
         } else {
@@ -66,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             profile = profileDA.login(mEmailView.getText().toString(),
                     mPasswordView.getText().toString());
 
-            if (profile.getId() == 0)
+            if (profile.getDni().length() == 0)
                 Snackbar.make(rlayout, "Login Incorrecto", Snackbar.LENGTH_LONG).show();
             else {
                 //prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

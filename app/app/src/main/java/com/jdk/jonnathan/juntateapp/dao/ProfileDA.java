@@ -11,7 +11,7 @@ import com.jdk.jonnathan.juntateapp.manejadores.Memoria;
 public class ProfileDA {
 
     public static final String TABLA_NOMBRE = "Profiles";
-    public static final String COLUMNA_ID = "ProfileId";
+    public static final String COLUMNA_ID = "ProfileDni";
     public static final String COLUMNA_NOMBRES = "ProfileName";
     public static final String COLUMNA_CUENTA = "BankAccount";
     public static final String COLUMNA_EMAIL = "Email";
@@ -19,7 +19,7 @@ public class ProfileDA {
 
     public static final String SQL_CREAR = "create table "
             + TABLA_NOMBRE + "("
-            + COLUMNA_ID + " INTEGER NOT NULL PRIMARY KEY, "
+            + COLUMNA_ID + " TEXT NOT NULL PRIMARY KEY, "
             + COLUMNA_NOMBRES + " TEXT NOT NULL, "
             + COLUMNA_CUENTA + " TEXT NOT NULL, "
             + COLUMNA_EMAIL + " TEXT NOT NULL, "
@@ -65,7 +65,7 @@ public class ProfileDA {
             if (cursor.moveToFirst()) {
                 do {
                     o = new Profile();
-                    o.setId(cursor.getInt(cursor.getColumnIndex(COLUMNA_ID)));
+                    o.setDni(cursor.getString(cursor.getColumnIndex(COLUMNA_ID)));
                     o.setNombre(cursor.getString(cursor.getColumnIndex(COLUMNA_NOMBRES)));
                     o.setCuentabancaria(cursor.getString(cursor.getColumnIndex(COLUMNA_CUENTA)));
                     o.setEmail(cursor.getString(cursor.getColumnIndex(COLUMNA_EMAIL)));
@@ -102,7 +102,7 @@ public class ProfileDA {
             if (handle.isOpen()) {
 
                 ContentValues values = new ContentValues();
-                values.put(COLUMNA_ID, o.getId());
+                values.put(COLUMNA_ID, o.getDni());
                 values.put(COLUMNA_NOMBRES, o.getNombre());
                 values.put(COLUMNA_CUENTA, o.getCuentabancaria());
                 values.put(COLUMNA_EMAIL, o.getEmail());
@@ -130,13 +130,13 @@ public class ProfileDA {
             handle = Memoria.getConexionDB().getWritableDatabase();
             if (handle.isOpen()) {
                 ContentValues values = new ContentValues();
-                values.put(COLUMNA_ID, o.getId());
+                values.put(COLUMNA_ID, o.getDni());
                 values.put(COLUMNA_NOMBRES, o.getNombre());
                 values.put(COLUMNA_CUENTA, o.getCuentabancaria());
                 values.put(COLUMNA_EMAIL, o.getEmail());
                 values.put(COLUMNA_PASSWORD, o.getPassword());
 
-                tally = handle.update(TABLA_NOMBRE, values, COLUMNA_ID + " = ?", new String[]{o.getId() + ""});
+                tally = handle.update(TABLA_NOMBRE, values, COLUMNA_ID + " = ?", new String[]{o.getDni() + ""});
                 success = tally > 0L;
             }
         } catch (Exception e) {
