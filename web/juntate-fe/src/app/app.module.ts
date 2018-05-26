@@ -1,7 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
@@ -14,17 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
     {path: '', component: IndexComponent},
-    {path: 'aperturar', component: RegistrationFormComponent},
-    /*{
-        path: 'heroes',
-        component: HeroListComponent,
-        data: { title: 'Heroes List' }
-    },
-    { path: '',
-        redirectTo: '/heroes',
-        pathMatch: 'full'
-    },
-    { path: '**', component: PageNotFoundComponent }*/
+    {path: 'registrarse', component: RegistrationFormComponent},
+    {path: 'aperturar', component: CreateAggroupmentComponent},
+    {path: 'ingresar', component: LoginFormComponent}
 ];
 
 @NgModule({
