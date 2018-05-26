@@ -126,12 +126,12 @@
                 android:text="Número de Integrantes:" />
 
             <EditText
-                android:id="@+id/NroIntegrantes"
+                android:id="@+id/NumIntegrantes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
                 android:ems="5"
-                android:hint="Número de Integrantes"
+                android:hint="6"
                 android:inputType="number" />
 
             <TextView
@@ -142,10 +142,14 @@
                 android:layout_height="wrap_content"
                 android:text="Frecuencia de Pago:" />
 
-            <Spinner
-                android:id="@+id/spinnerFrecuenciaPago"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/FrecuenciaPago"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:ems="5"
+                android:hint="Semanal/Quincenal/Mensual"
+                android:inputType="text" />
 
             <TextView
                 android:layout_margin="7dp"
