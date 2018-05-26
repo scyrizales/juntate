@@ -21,3 +21,8 @@ resJsonArray = (data) => {
     }
     return arr;
 }
+
+exports.errorJson = (res, data) => {
+    data.error = true;
+    res.json(data);
+}
