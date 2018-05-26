@@ -1,12 +1,25 @@
-<form>
-  Email:
-  <input [(ngModel)]="user.email" name="email"/>
-  Nombres:
-  <input [(ngModel)]="user.first_names" name="first_names"/>
-  Apellidos:
-  <input [(ngModel)]="user.last_names" name="last_names"/>
-  DNI:
-  <input [(ngModel)]="user.dni" name="dni"/>
-  <button (click)="registerUser()">Crear usuario</button>
-  <div>{{user.email}} + {{user.first_names}} + {{user.last_names}} + {{user.dni}}</div>
-</form>
+<div class="box-container">
+  <div class="box-form">
+    <form>
+      <legend>Form Title</legend>
+
+      <div class="form-group">
+        <label for=""></label>
+        <input type="text" class="form-control" name="" id="" placeholder="Input...">
+      </div>
+      Email:
+      <input [(ngModel)]="user.email" name="email"/>
+      Nombres:
+      <input [(ngModel)]="user.first_names" name="first_names"/>
+      Apellidos:
+      <input [(ngModel)]="user.last_names" name="last_names"/>
+      DNI:
+      <input [(ngModel)]="user.dni" name="dni"/>
+      <button (click)="registerUser()">Crear usuario</button>
+      <div>{{user.email}} + {{user.first_names}} + {{user.last_names}} + {{user.dni}}</div>
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
