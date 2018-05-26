@@ -19,6 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CrearUsuario" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".CrearJuntaActivity" />
+        <activity android:name=".ListarJuntaActivity" />
+        <activity android:name=".CalendarioJuntaActivity" />
+        <activity android:name=".UnirseJuntaActivity" />
+        <activity android:name=".MiembrosJuntaActivity"></activity>
     </application>
 
 </manifest>
