@@ -36,6 +36,13 @@ public class CrearUsuarioActivity extends AppCompatActivity implements View.OnCl
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         etDni = findViewById(R.id.ProfileDNI);
         etNombres = findViewById(R.id.ProfileName);
         etCuenta = findViewById(R.id.ProfileAccount);
