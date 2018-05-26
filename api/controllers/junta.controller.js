@@ -89,6 +89,30 @@ exports.join = (req, res) => {
                 })
             }
         });
+}
 
+exports.sort = (req, res) => {
+
+    juntaUsuarioDB.find({ junta: req.params.id }, (req, result) => {
+        // if (result.length < 6) {
+        //     res.json({ message: "Minimo 6 usuario para sortear" });
+        //     return;
+        // }
+
+
+
+        result.sort();
+
+        result.forEach(function (item) {
+            item.orden = result.indexOf(item);
+
+            item.save(function (err, doc) {
+                if (err) return handleError(err);
+            });
+        });
+
+        res.json(result);
+
+    })
 
 }
