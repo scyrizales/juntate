@@ -11,7 +11,8 @@ import {IndexComponent} from './components/index/index.component';
 
 const appRoutes: Routes = [
     {path: '', component: IndexComponent},
-    {path: 'aperturar', component: RegistrationFormComponent},
+    {path: 'registrarse', component: RegistrationFormComponent},
+    {path: 'aperturar', component: CreateAggroupmentComponent},
     /*{
         path: 'heroes',
         component: HeroListComponent,
