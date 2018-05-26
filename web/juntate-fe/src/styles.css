@@ -17,6 +17,16 @@
 .logo img{
     width: 100%;
 }
+.the-list{
+    list-style-type: none;
+}
+.the-list li{
+    padding: 5px 0;
+    font-size: 18px;
+}
+.the-list li:before {
+    content: '✓';
+}
 /*brand*/
 .navbar-default .navbar-brand {
     font-size: 2.5em;
@@ -72,4 +82,13 @@
     margin: 0;
     font-weight: bold;
     text-align: center;
+}
+.featurette .img-about{
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.featurette  .img-about img{
+    width: 100%;
 }
