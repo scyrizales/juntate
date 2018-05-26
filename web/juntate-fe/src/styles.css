@@ -13,7 +13,7 @@
 }
 
 .navbar-default .navbar-brand:hover {
-    color:#f37c2f;
+    color: #f37c2f
 }
 
 .navbar-default .navbar-brand:visited {
@@ -25,13 +25,12 @@
     color: white;
 }
 
-#bs-example-navbar-collapse-1 .nav a:hover {
-    color:#f37c2f;
+.nav li a:hover {
+    color:#f37c2f !important;
 }
 
-#bs-example-navbar-collapse-1 .nav a:visited {
-    color:#f37c2f;
-    background: red;
+#bs-example-navbar-collapse-1 .nav li a:visited {
+    color:#fff;
 }
 
 .box-container {
