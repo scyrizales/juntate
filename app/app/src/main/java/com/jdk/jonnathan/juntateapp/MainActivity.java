@@ -12,9 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.jdk.jonnathan.juntateapp.entidades.Profile;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Profile profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +27,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +36,19 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        TextView textViewUsername = (TextView) navigationView.getHeaderView(0).findViewById(R.id.fullname);
+        TextView textViewEmail = (TextView) navigationView.getHeaderView(0).findViewById(R.id.email);
+
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null) {
+
+            profile = (Profile) bundle.getSerializable("profile");
+
+            textViewUsername.setText(profile.getNombre());
+            textViewEmail.setText(profile.getEmail());
+        }
     }
 
     @Override
@@ -67,9 +76,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_crear) {
             return true;
+        } else if (id == R.id.action_cerrar) {
+            finish();
         }
+
 
         return super.onOptionsItemSelected(item);
     }

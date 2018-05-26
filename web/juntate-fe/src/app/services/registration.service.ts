@@ -14,4 +14,8 @@ export class RegistrationServiceService {
     public register(user: User): Observable<User> {
         return of(this.mockedUser);
     }
+
+    public getUser() {
+        return this.mockedUser;
+    }
 }

@@ -1,12 +1,45 @@
-exports.findByUsuario = (req, res) =>{
-    res.json({"message": "Find by usuario "+req.params.id});
+var juntaDB = require('../data/schemas/junta');
+var util = require('../lib/utils');
+var ObjectID = require('mongodb').ObjectID;
+
+exports.findOne = (req, res) => {
+    juntaDB.findById({ id: req.body.id }, (err, doc) => {
+        if (err) {
+            res.json(err);
+            return;
+        }
+        if (!doc) {
+            res.json({ message: 'No existe la junta' });
+            return;
+        }
+        res.json(doc);
+    });
 }
 
-exports.findOne = (req, res) =>{
-    res.json({"message": "Find one "+req.params.id});
+exports.create = (req, res) => {
+    var body = req.body;
+    body.creador = ObjectID(body.creador);
+    juntaDB.create(req.body, (err, doc) => {
+        if (err) {
+            res.json(err);
+            return;
+        }
+
+        util.resJson(res, doc);
+    })
 }
 
-exports.create = (req, res) =>{
-    res.json({"message": "Create"});
-}
+exports.findAll = (req, res) => {
+    juntaDB.find({}, (err, doc) => {
+        if (err) {
+            res.json(err);
+            return;
+        }
 
+        if (!doc) {
+            res.json({ message: 'No existe la junta' });
+            return;
+        }
+        util.resJson(res, doc);
+    });
+};

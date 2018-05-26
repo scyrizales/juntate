@@ -1,7 +1,29 @@
+const userDB = require('../data/schemas/usuario');
+const util = require('../lib/utils');
+
 exports.signUp = (req, res)=>{
-    res.json({"message": "Sign up"});
+    userDB.create(req.body, (err, doc) => {
+        if (err) {
+            res.json(err);
+            return;
+        }
+        // res.json(doc);
+        util.resJson(res, doc);
+    });
 }
 
 exports.signIn = (req, res)=>{
-    res.json({"message": "Sign in"});
+    var email = req.body.email;
+    var password = req.body.password;
+    userDB.findOne({ email, password }, (err, doc) => {
+        if (err) {
+            res.json(err);
+            return;
+        }
+        if (!doc) {
+            res.json({ message: 'No existe el usuario' });
+            return;
+        }
+        res.json(doc);
+    });
 }
