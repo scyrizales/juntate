@@ -1,8 +1,20 @@
-<form>
-  Email:
-  <input [(ngModel)]="email" name="email"/>
-  Password:
-  <input [(ngModel)]="password" name="password"/>
-  <button [disabled]="!isValid()" (click)="login()">Ingresa</button>
-  <div>email + {{email}}</div>
-</form>
+<div class="box-container">
+  <div class="box-form">
+    <form>
+      <legend class="form-title">Ingresar</legend>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="email" name="name" id="name">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password" id="password">
+        </div>
+      </div>
+      <div class="col-md-12 text-center">
+        <button [disabled]="!isValid()" (click)="login()" class="btn btn-lg btn-primary">Ingresa</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -4,6 +4,7 @@ var usuarioDB = require('../data/schemas/usuario');
 var util = require('../lib/utils');
 var valCred = require('../mocks/ValidacionCrediticia');
 var ObjectID = require('mongodb').ObjectID;
+var lodash = require('lodash');
 
 exports.findOne = (req, res) => {
     juntaDB.findById({ id: req.params.id }, (err, doc) => {
@@ -103,21 +104,10 @@ exports.join = (req, res) => {
 exports.sort = (req, res) => {
 
     juntaUsuarioDB.find({ junta: req.params.id }, (req, result) => {
-        // if (result.length < 6) {
-        //     res.json({ message: "Minimo 6 usuario para sortear" });
-        //     return;
-        // }
+        var participantes = lodash.shuffle(result);
 
-        console.log(typeof(result));
-
-        console.log(result[0]);
-
-        result = result.sort();
-        console.log('---------------------------------');
-        console.log(result[0]);
-        result.forEach(function (item) {
-
-            item.orden = result.indexOf(item);
+        participantes.forEach(function (item, ix) {
+            item.orden = ix;
 
             item.save(function (err, doc) {
                 if (err) return handleError(err);
