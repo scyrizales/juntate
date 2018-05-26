@@ -50,7 +50,6 @@
             android:name=".MiembrosJuntaActivity"
             android:label="Crear Usuario"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ListaJuntasActivity"></activity>
     </application>
 
 </manifest>

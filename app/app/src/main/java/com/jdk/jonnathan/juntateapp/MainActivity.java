@@ -97,10 +97,9 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, CrearJuntaActivity.class);
             //intent.putExtras(bundle);
             startActivity(intent);
-
-
-        } else if (id == R.id.nav_gallery) {
-
+        } else if (id == R.id.nav_listar_junta) {
+            Intent intent = new Intent(this, ListarJuntaActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
