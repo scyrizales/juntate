@@ -1,4 +1,6 @@
 var ObjectID = require('mongodb').ObjectID;
+var lodash = require('lodash');
+
 exports.resJson = (res, data) => {
     if (Array.isArray(data)) {
         res.json(resJsonArray(data));
@@ -8,7 +10,7 @@ exports.resJson = (res, data) => {
 }
 
 const resJsonObject = (data) => {
-    var aux = data.toObject();
+    var aux = lodash.clone(data);
     if (data.password) delete aux.password;
     if (data._id) aux.id = ObjectID(data._id).toString();
     return aux;
