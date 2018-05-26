@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.jdk.jonnathan.juntateapp.dao.ProfileDA;
+import com.jdk.jonnathan.juntateapp.dao.UsuarioDA;
 import com.jdk.jonnathan.juntateapp.entidades.Profile;
 import com.jdk.jonnathan.juntateapp.manejadores.Memoria;
 import com.jdk.jonnathan.juntateapp.manejadores.SqlHandler;
@@ -59,7 +59,7 @@ public class CrearUsuarioActivity extends AppCompatActivity implements View.OnCl
 
     protected void registrarUsuario() {
 
-        ProfileDA profileDA = new ProfileDA();
+        UsuarioDA profileDA = new UsuarioDA();
         currentData = new Profile();
 
         currentData.setDni(etDni.getText().toString());

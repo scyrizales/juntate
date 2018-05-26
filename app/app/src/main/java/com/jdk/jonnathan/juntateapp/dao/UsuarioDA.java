@@ -8,9 +8,11 @@ import android.database.sqlite.SQLiteDatabase;
 import com.jdk.jonnathan.juntateapp.entidades.Profile;
 import com.jdk.jonnathan.juntateapp.manejadores.Memoria;
 
-public class ProfileDA {
+import java.util.ArrayList;
 
-    public static final String TABLA_NOMBRE = "Profiles";
+public class UsuarioDA {
+
+    public static final String TABLA_NOMBRE = "Usuarios";
     public static final String COLUMNA_ID = "ProfileDni";
     public static final String COLUMNA_NOMBRES = "ProfileName";
     public static final String COLUMNA_CUENTA = "BankAccount";
@@ -19,7 +21,7 @@ public class ProfileDA {
 
     public static final String SQL_CREAR = "create table "
             + TABLA_NOMBRE + "("
-            + COLUMNA_ID + " TEXT NOT NULL PRIMARY KEY, "
+            + COLUMNA_ID + " INTEGER NOT NULL PRIMARY KEY, "
             + COLUMNA_NOMBRES + " TEXT NOT NULL, "
             + COLUMNA_CUENTA + " TEXT NOT NULL, "
             + COLUMNA_EMAIL + " TEXT NOT NULL, "
@@ -38,7 +40,46 @@ public class ProfileDA {
             + " FROM " + TABLA_NOMBRE
             + " ORDER BY " + COLUMNA_NOMBRES;
 
-    public ProfileDA() {
+    public UsuarioDA() {
+    }
+
+    public ArrayList<Profile> listar() {
+        ArrayList<Profile> lista = new ArrayList<>();
+        SQLiteDatabase handle;
+        Cursor cursor = null;
+        String query = SQL_SELECT;
+
+        try {
+            handle = Memoria.getConexionDB().getReadableDatabase();
+            cursor = handle.rawQuery(query, null);
+
+            if (cursor.moveToFirst()) {
+                do {
+                    Profile o = new Profile();
+                    o.setDni(cursor.getString(cursor.getColumnIndex(COLUMNA_ID)));
+                    o.setNombre(cursor.getString(cursor.getColumnIndex(COLUMNA_NOMBRES)));
+                    o.setCuentabancaria(cursor.getString(cursor.getColumnIndex(COLUMNA_CUENTA)));
+                    o.setEmail(cursor.getString(cursor.getColumnIndex(COLUMNA_EMAIL)));
+                    o.setPassword(cursor.getString(cursor.getColumnIndex(COLUMNA_PASSWORD)));
+                    lista.add(o);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        } finally {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                    cursor = null;
+                } catch (Exception e) {
+                }
+            }
+        }
+        handle = null;
+        query = null;
+
+        return lista;
     }
 
     public Profile login(String email, String password) {
