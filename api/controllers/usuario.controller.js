@@ -4,7 +4,11 @@ const util = require('../lib/utils');
 exports.signUp = (req, res)=>{
     userDB.create(req.body, (err, doc) => {
         if (err) {
-            res.json(err);
+            if (err.code === 11000) {
+                util.errorJson(res, { message: 'El email o el dni ya existen' });
+                return;
+            }
+            util.resJson(res, err);
             return;
         }
         // res.json(doc);
@@ -17,13 +21,28 @@ exports.signIn = (req, res)=>{
     var password = req.body.password;
     userDB.findOne({ email, password }, (err, doc) => {
         if (err) {
-            res.json(err);
+            util.errorJson(res, err);
             return;
         }
         if (!doc) {
-            res.json({ message: 'No existe el usuario' });
+            util.errorJson(res, { message: 'No existe el usuario' });
             return;
         }
-        res.json(doc);
+        util.resJson(res, doc);
     });
 }
+
+exports.findAll = (req, res) => {
+    userDB.find({}, (err, doc) => {
+        if (err) {
+            util.errorJson(res, err);
+            return;
+        }
+
+        if (!doc) {
+            util.errorJson(res, { message: 'No existe la junta' });
+            return;
+        }
+        util.resJson(res, doc);
+    });
+};

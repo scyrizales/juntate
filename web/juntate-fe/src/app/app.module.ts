@@ -1,13 +1,15 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {AppComponent} from './app.component';
-import {RegistrationFormComponent} from './components/registration-form/registration-form.component';
-import {RegistrationServiceService} from './services/registration.service';
-import {CreateAggroupmentComponent} from './components/create-aggroupment/create-aggroupment.component';
-import {CreateAggroupmentService} from './services/create-aggroupment.service';
-import {IndexComponent} from './components/index/index.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { RegistrationService } from './services/registration.service';
+import { CreateAggroupmentComponent } from './components/create-aggroupment/create-aggroupment.component';
+import { CreateAggroupmentService } from './services/create-aggroupment.service';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { IndexComponent } from './components/index/index.component';
 
 const appRoutes: Routes = [
     {path: '', component: IndexComponent},
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
         AppComponent,
         RegistrationFormComponent,
         CreateAggroupmentComponent,
-        IndexComponent
+        IndexComponent,
+        LoginFormComponent
     ],
     imports: [
         BrowserModule,
@@ -40,7 +43,7 @@ const appRoutes: Routes = [
             {enableTracing: true} // <-- debugging purposes only
         )
     ],
-    providers: [RegistrationServiceService, CreateAggroupmentService],
+    providers: [RegistrationService, CreateAggroupmentService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
