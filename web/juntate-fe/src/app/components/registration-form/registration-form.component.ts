@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
 import {RegistrationService} from '../../services/registration.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-registration-form',
@@ -10,13 +11,14 @@ import {RegistrationService} from '../../services/registration.service';
 export class RegistrationFormComponent {
     private user: User;
 
-    constructor(private registrationService: RegistrationService) {
-        this.user = new User('', '', '', '', '', null);
+    constructor(private registrationService: RegistrationService,
+                private router: Router) {
+        this.user = new User('', '', '', '', '', null, '');
     }
 
     private registerUser(): void {
         this.registrationService.register(this.user).subscribe(
-            user => alert(' user dni is ' + user.dni)
+            () => this.router.navigateByUrl('/aperturar')
         );
     }
 }
