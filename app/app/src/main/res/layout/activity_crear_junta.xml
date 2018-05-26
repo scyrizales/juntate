@@ -1,9 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jdk.jonnathan.juntateapp.CrearJuntaActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".CrearJuntaActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/junta_img"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.4"
+                android:background="@color/colorPrimary" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="50dp"
+                    android:src="@drawable/junta_img"
+                    android:layout_height="50dp" />
+
+                <TextView
+                    android:id="@+id/tituloFormProfile"
+                    android:layout_margin="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/sample_primary"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:text="Aperturar Junta" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_margin="7dp"
+                android:layout_marginTop="15dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alias Junta:" />
+
+            <EditText
+                android:id="@+id/NombreJunta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:layout_margin="7dp"
+                android:hint="Alias Junta"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:layout_margin="7dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monto Junta:" />
+
+            <EditText
+                android:id="@+id/MontoJunta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:hint="Monto Junta"
+                android:layout_margin="7dp"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:layout_margin="7dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Número de Integrantes:" />
+
+            <EditText
+                android:id="@+id/NroIntegrantes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:ems="5"
+                android:hint="Número de Integrantes"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_margin="7dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frecuencia de Pago:" />
+
+            <Spinner
+                android:id="@+id/spinnerFrecuenciaPago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_margin="7dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monto Pago:" />
+
+            <EditText
+                android:id="@+id/MontoPago"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:ems="5"
+                android:hint="Monto Pago"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:layout_margin="7dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duración de la Junta:" />
+
+            <EditText
+                android:id="@+id/PeriodoJunta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:ems="5"
+                android:hint="Duración de la Junta"
+                android:inputType="text" />
+
+            <Space
+                android:outlineProvider="paddedBounds"
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <Button
+                android:id="@+id/btnAperturar"
+                android:layout_margin="7dp"
+                android:layout_marginTop="20dp"
+                android:padding="7dp"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:text="Aperturar"
+                android:textColor="?attr/colorButtonNormal" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

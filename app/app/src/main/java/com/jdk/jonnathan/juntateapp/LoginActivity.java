@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnIniciarSesion:
                 login();
                 break;
-            case R.id.btnRegistrarProfile:
+            case R.id.btnRegistrarse:
                 Intent intent = new Intent();
                 intent.setClass(this, CrearUsuarioActivity.class);
                 startActivity(intent);
