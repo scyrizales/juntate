@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
 
             profile = (Profile) bundle.getSerializable("profile");
 
-            textViewUsername.setText(profile.toString());
+            textViewUsername.setText(profile.getNombre());
             textViewEmail.setText(profile.getEmail());
         }
     }
