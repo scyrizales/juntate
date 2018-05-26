@@ -99,11 +99,15 @@ exports.sort = (req, res) => {
         //     return;
         // }
 
+        console.log(typeof(result));
 
+        console.log(result[0]);
 
-        result.sort();
-
+        result = result.sort();
+        console.log('---------------------------------');
+        console.log(result[0]);
         result.forEach(function (item) {
+
             item.orden = result.indexOf(item);
 
             item.save(function (err, doc) {
