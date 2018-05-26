@@ -10,3 +10,6 @@ exports.create = (req, res) =>{
     res.json({"message": "Create"});
 }
 
+exports.findAll = (req, res) => {
+    res.json({'message': 'find all'});
+};
