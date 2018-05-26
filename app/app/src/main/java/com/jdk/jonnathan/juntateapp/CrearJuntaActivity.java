@@ -30,6 +30,13 @@ public class CrearJuntaActivity extends AppCompatActivity implements View.OnClic
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         //spinnerNumIntegrantes = findViewById(R.id.spinnerNumIntegrantes);
         //spinnerFrecuenciaPago = findViewById(R.id.spinnerFrecuenciaPago);
 /*
