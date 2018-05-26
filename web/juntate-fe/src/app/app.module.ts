@@ -6,12 +6,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { RegistrationServiceService } from './services/registration-service.service';
+import { CreateAggroupmentComponent } from './components/create-aggroupment/create-aggroupment.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    CreateAggroupmentComponent
   ],
   imports: [
     BrowserModule,
