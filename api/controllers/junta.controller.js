@@ -1,5 +1,6 @@
 var juntaDB = require('../data/schemas/junta');
 var util = require('../lib/utils');
+var ObjectID = require('mongodb').ObjectID;
 
 exports.findOne = (req, res) => {
     juntaDB.findById({ id: req.body.id }, (err, doc) => {
@@ -16,6 +17,8 @@ exports.findOne = (req, res) => {
 }
 
 exports.create = (req, res) => {
+    var body = req.body;
+    body.creador = ObjectID(body.creador);
     juntaDB.create(req.body, (err, doc) => {
         if (err) {
             res.json(err);
@@ -37,7 +40,6 @@ exports.findAll = (req, res) => {
             res.json({ message: 'No existe la junta' });
             return;
         }
-
-        util.resJson(doc);
+        util.resJson(res, doc);
     });
 };
