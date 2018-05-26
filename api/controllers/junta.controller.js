@@ -47,6 +47,8 @@ exports.findAll = (req, res) => {
 };
 
 exports.join = (req, res) => {
+    req.body.rol = "PARTICIPANTE";
+
     juntaUsuarioDB.findOne(
         {
             junta: req.body.junta,
