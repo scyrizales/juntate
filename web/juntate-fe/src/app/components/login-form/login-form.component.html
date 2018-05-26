@@ -1,0 +1,8 @@
+<form>
+  Email:
+  <input [(ngModel)]="email" name="email"/>
+  Password:
+  <input [(ngModel)]="password" name="password"/>
+  <button [disabled]="!isValid()" (click)="login()">Ingresa</button>
+  <div>email + {{email}}</div>
+</form>

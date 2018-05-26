@@ -5,17 +5,21 @@ import {of} from 'rxjs/observable/of';
 
 
 @Injectable()
-export class RegistrationServiceService {
+export class RegistrationService {
     private mockedUser: User = new User('vimurillo@gmail.com', 'Victor Vladimir', 'Murillo Guerrero', '43617614', 'secret');
 
     constructor() {
     }
 
-    public register(user: User): Observable<User> {
-        return of(this.mockedUser);
-    }
+  public getUser(): User {
+    return this.mockedUser;
+  }
 
-    public getUser() {
-        return this.mockedUser;
-    }
+  public login(email: string, password: string): Observable<User> {
+    return of(this.mockedUser);
+  }
+
+  public register(user: User): Observable<User> {
+        return of(this.mockedUser);
+  }
 }
