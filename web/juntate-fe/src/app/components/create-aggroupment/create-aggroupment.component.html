@@ -1,34 +1,58 @@
-<form>
-  Nombre de junta:
-  <input [(ngModel)]="aggroupment.name" name="name"/>
-  Monto de junta:
-  <select [(ngModel)]="aggroupment.ammount" name="ammount">
-    <option *ngFor="let option of ammounts" [value]="option">
-      {{option}}
-    </option>
-  </select>
-  Frecuencia de pago:
-  <select [(ngModel)]="aggroupment.period" name="period">
-      <option *ngFor="let period of periods" [value]="period">
-        {{period}}
-      </option>
-  </select>
-  Numero de participantes:
-  <select [(ngModel)]="aggroupment.nbParticipants" name="nbParticipants">
-    <option *ngFor="let nbParticipant of nbParticipants" [value]="nbParticipant">
-      {{nbParticipant}}
-    </option>
-  </select>
-  <div *ngIf="isValid()">
-    Monto a pagar {{aggroupment.period}}:
-    <input readonly [value]="paymentPeriodically()"/>
-  </div>
-  <button (click)="createAggroupment()" [disabled]="!isValid()">Crear junta</button>
-  <div>
-    name + {{aggroupment.name}} + 
-    ammount + {{aggroupment.ammount}} +
-    period + {{aggroupment.period}} + 
-    nbParticipants + {{aggroupment.nbParticipants}}
-    isValid + {{isValid()}}
-  </div>
-</form>
+<div class="box-container">
+    <div class="box-form">
+        <form>
+            <legend class="form-title">Crear Nueva Junta</legend>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Nombre de junta</label>
+                    <input type="text" class="form-control" [(ngModel)]="aggroupment.name" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="ammount">Monto de junta:</label>
+                    <select [(ngModel)]="aggroupment.ammount" name="ammount" id="ammount" class="form-control">
+                        <option *ngFor="let option of ammounts" [value]="option">
+                            {{option}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="period">Frecuencia de pago:</label>
+                    <select [(ngModel)]="aggroupment.period" name="period" id="period" class="form-control">
+                        <option *ngFor="let period of periods" [value]="period">
+                            {{period}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nbParticipants">Número de participantes:</label>
+                    <select [(ngModel)]="aggroupment.nbParticipants" name="nbParticipants" id="nbParticipants"
+                            class="form-control">
+                        <option *ngFor="let nbParticipant of nbParticipants" [value]="nbParticipant">
+                            {{nbParticipant}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nbParticipants">Monto de Cuota</label>
+                    <div *ngIf="isValid()">
+                        {{aggroupment.period}}:
+                        <p class="payment">S/. {{paymentPeriodically()}}</p>
+                        <!--<input readonly [value]="paymentPeriodically()"/>-->
+                    </div>
+                    <div *ngIf="!isValid()">
+                        <label>Periodo</label>:
+                        <p class="payment">S/. 0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <button (click)="createAggroupment()" class="btn btn-primary btn-lg" [disabled]="!isValid()">Crear
+                    junta
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
