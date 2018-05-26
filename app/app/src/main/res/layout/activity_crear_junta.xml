@@ -55,7 +55,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
 
             <LinearLayout
                 android:layout_marginTop="7dp"
@@ -65,7 +66,7 @@
 
                 <ImageView
                     android:layout_centerHorizontal="true"
-                    android:layout_width="50dp"
+                    android:layout_width="30dp"
                     android:src="@drawable/junta_img"
                     android:layout_height="50dp" />
 
