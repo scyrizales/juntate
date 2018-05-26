@@ -1,14 +1,3 @@
-var userDB = require('../data/schemas/usuario');
-/*exports.signUp = (req, res)=>{
-    userDB.create(req.body, (err, doc) => {
-        if (err) {
-            res.json(err);
-            return;
-        }
-        res.json(doc);
-    });
-}*/
-
 exports.evaluacion = (req, res)=>{
     var dni = req.body.dni;
         if (err) {
