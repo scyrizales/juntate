@@ -1,9 +1,17 @@
-exports.findByUsuario = (req, res) =>{
-    res.json({"message": "Find by usuario "+req.params.id});
-}
+var juntaDB = require('../data/schemas/junta');
 
 exports.findOne = (req, res) =>{
-    res.json({"message": "Find one "+req.params.id});
+    juntaDB.findById({ id: req.body.id }, (err, doc) => {
+        if (err) {
+            res.json(err);
+            return;
+        }
+        if (!doc) {
+            res.json({ message: 'No existe la junta' });
+            return;
+        }
+        res.json(doc); 
+    });
 }
 
 exports.create = (req, res) =>{
@@ -11,5 +19,15 @@ exports.create = (req, res) =>{
 }
 
 exports.findAll = (req, res) => {
-    res.json({'message': 'find all'});
+    juntaDB.findById(req.body || {}, (err, doc) => {
+        if (err) {
+            res.json(err);
+            return;
+        }
+        if (!doc) {
+            res.json({ message: 'No existe la junta' });
+            return;
+        }
+        res.json(doc); 
+    });
 };
