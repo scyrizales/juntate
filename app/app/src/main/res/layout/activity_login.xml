@@ -6,4 +6,5 @@
     android:layout_height="match_parent"
     tools:context="com.jdk.jonnathan.juntateapp.LoginActivity">
 
+
 </android.support.constraint.ConstraintLayout>
