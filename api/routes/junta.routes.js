@@ -3,6 +3,8 @@ module.exports = (app) => {
 
     app.get('/junta/findAll', juntaController.findAll);
     app.get('/junta/findOne/:id', juntaController.findOne);
-    app.post('/junta/create', juntaController.create)
-    
+    app.post('/junta/create', juntaController.create);
+    app.post('/junta/join', juntaController.join);
+    app.post('/junta/sort/:id', juntaController.sort)
+
 }
