@@ -1,6 +1,5 @@
 exports.resJson = (res, data) => {
 
-
     if (typeof (data) === "object") {
         var aux = data.toObject();
         resJsonObject(aux);
