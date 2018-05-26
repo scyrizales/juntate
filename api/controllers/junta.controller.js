@@ -7,7 +7,7 @@ var ObjectID = require('mongodb').ObjectID;
 var lodash = require('lodash');
 
 exports.findOne = (req, res) => {
-    juntaDB.findById({ id: req.params.id }, (err, doc) => {
+    juntaDB.findById(req.params.id, (err, doc) => {
         if (err) {
             util.errorJson(res, err);
             return;
@@ -16,9 +16,15 @@ exports.findOne = (req, res) => {
             util.errorJson(res, { message: 'No existe la junta' });
             return;
         }
+        var d = doc.toObject();
         juntaUsuarioDB.find({ junta: doc._id }, (err, docs) => {
-            doc.participantes = util.resJsonArray(docs);
-            util.resJson(res, doc);
+            if (err) {
+                util.errorJson(res, err);
+                return;
+            }
+            
+            d.participantes = util.resJsonArray(docs);
+            util.resJson(res, d);
         });
     });
 }
@@ -101,7 +107,7 @@ exports.join = (req, res) => {
     });
 }
 
-exports.sort = (req, res) => {
+exports.start = (req, res) => {
 
     juntaUsuarioDB.find({ junta: req.params.id }, (req, result) => {
         var participantes = lodash.shuffle(result);
@@ -110,11 +116,13 @@ exports.sort = (req, res) => {
             item.orden = ix;
 
             item.save(function (err, doc) {
-                if (err) return handleError(err);
+                if (err) {
+                    util.errorJson(res, err);
+                }
             });
         });
 
-        res.json(result);
+        util.resJson(res, participantes);
 
     })
 
