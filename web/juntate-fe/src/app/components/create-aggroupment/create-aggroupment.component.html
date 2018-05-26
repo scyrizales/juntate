@@ -8,7 +8,7 @@
                     <input type="text" class="form-control" [(ngModel)]="aggroupment.name" name="name" id="name">
                 </div>
                 <div class="form-group">
-                    <label for="ammount">Monto de junta:</label>
+                    <label for="ammount">Monto de cuota:</label>
                     <select [(ngModel)]="aggroupment.ammount" name="ammount" id="ammount" class="form-control">
                         <option *ngFor="let option of ammounts" [value]="option">
                             {{option}}
@@ -35,13 +35,10 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="nbParticipants">Monto de Cuota</label>
+                    <label for="nbParticipants">Monto a recibir</label>
                     <div *ngIf="isValid()">
-                        <p class="payment">S/. {{paymentPeriodically()}}</p>
-                    </div>
-                    <div *ngIf="!isValid()">
                         <label>Periodo</label>:
-                        <p class="payment">S/. 0</p>
+                        <p class="payment">S/. {{ calculateTotalAmmount() }}</p>
                     </div>
                 </div>
             </div>

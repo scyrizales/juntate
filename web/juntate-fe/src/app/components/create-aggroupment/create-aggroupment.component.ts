@@ -29,15 +29,16 @@ export class CreateAggroupmentComponent implements OnInit {
         }
     }
 
+    public calculateTotalAmmount (): Number {
+
+      return this.aggroupment.ammount * this.aggroupment.nbParticipants;
+    }
+
     private isValid(): boolean {
         return this.aggroupment.ammount in Ammount &&
             this.aggroupment.name.length > 0 &&
             this.aggroupment.nbParticipants > 1 &&
             this.aggroupment.period in Period;
-    }
-
-    private paymentPeriodically(): number {
-        return Math.round(this.aggroupment.ammount / this.aggroupment.nbParticipants * 100) / 100;
     }
 
     private createAggroupment(): void {
