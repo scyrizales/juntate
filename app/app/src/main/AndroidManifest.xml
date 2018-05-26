@@ -36,7 +36,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ListarJuntaActivity"
-            android:label="Crear Junta"
+            android:label="Listar Juntas"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CalendarioJuntaActivity"
