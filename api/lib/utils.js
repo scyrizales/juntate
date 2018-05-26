@@ -1,22 +1,25 @@
 exports.resJson = (res, data) => {
-    var aux = data.toObject();
 
-    if (typeof (data) === "object") resJsonObject(aux);
-    if (Array.isArray(data)) resJsonArray(aux);
 
-    res.json(aux);
+    if (typeof (data) === "object") {
+        var aux = data.toObject();
+        resJsonObject(aux);
+        res.json(aux);
+    }
+
+    if (Array.isArray(data)) {
+        resJsonArray(data);
+    }
 }
 
 resJsonObject = (data) => {
-    console.log(data);
     if (data.password) delete data.password;
-    console.log(data);
     if (data._id) data.id = ObjectId(data._id).toString();
-    console.log(data);
 }
 
 resJsonArray = (data) => {
     for (var i = 0; i < data.length; i++) {
-        resJsonObject(data[i]);
+        var aux = data[i].toObject();
+        resJsonObject(aux);
     }
 }
