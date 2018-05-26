@@ -34,12 +34,10 @@
                         </option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="nbParticipants">Monto de Cuota</label>
                     <div *ngIf="isValid()">
                         <p class="payment">S/. {{paymentPeriodically()}}</p>
-                        <!--<input readonly [value]="paymentPeriodically()"/>-->
                     </div>
                     <div *ngIf="!isValid()">
                         <label>Periodo</label>:
@@ -49,7 +47,7 @@
             </div>
             <div class="col-md-12 text-center">
                 <button (click)="createAggroupment()" class="btn btn-primary btn-lg" [disabled]="!isValid()">Crear
-                    junta
+                    Junta
                 </button>
             </div>
         </form>
