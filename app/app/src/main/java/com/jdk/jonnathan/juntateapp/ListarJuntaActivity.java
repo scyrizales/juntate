@@ -31,6 +31,13 @@ public class ListarJuntaActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         listaJuntas = juntaDA.listar();
 
         ivSinJunta = findViewById(R.id.imageViewSD);
