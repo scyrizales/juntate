@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Aggroupment } from '../../models/aggroupment';
 import { Ammount } from '../../models/ammount.enum';
 import { Period } from '../../models/period.enum';
-import { RegistrationService } from '../../services/registration.service';
+import { RegistrationServiceService } from '../../services/registration.service';
 import { CreateAggroupmentService } from '../../services/create-aggroupment.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class CreateAggroupmentComponent {
   private ammounts: string[] = Object.keys(Ammount).filter(Number);
   private periods: string[] = Object.keys(Period).filter((e: string) => isNaN(Number(e)));
   private nbParticipants: number[] = [6, 8, 10, 12];
-  constructor(private registrationService: RegistrationService,
+  constructor(private registrationService: RegistrationServiceService,
               private createAggroupmentService: CreateAggroupmentService) {
     this.aggroupment = new Aggroupment('', 1);
   }

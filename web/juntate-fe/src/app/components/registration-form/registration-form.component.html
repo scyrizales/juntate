@@ -1,12 +1,42 @@
-<form>
-  Email:
-  <input [(ngModel)]="user.email" name="email"/>
-  Nombres:
-  <input [(ngModel)]="user.first_names" name="first_names"/>
-  Apellidos:
-  <input [(ngModel)]="user.last_names" name="last_names"/>
-  DNI:
-  <input [(ngModel)]="user.dni" name="dni"/>
-  <button (click)="registerUser()">Crear usuario</button>
-  <div>{{user.email}} + {{user.first_names}} + {{user.last_names}} + {{user.dni}}</div>
-</form>
+<div class="box-container">
+    <div class="box-form">
+        <form>
+            <legend class="form-title">Aperturar Cuenta</legend>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="mail">Ingresa tu correo</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.email" name="email" id="mail">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.password" name="password" id="password">
+                </div>
+                <div class="form-group">
+                    <label for="password_repeat">Repetir Contraseña</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.repeat_password" name="password_repeat"
+                           id="password_repeat">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="first_names">Nombres:</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.first_names" name="first_names"
+                           id="first_names">
+                </div>
+                <div class="form-group">
+                    <label for="last_names">Apellidos:</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.last_names" name="last_names"
+                           id="last_names">
+                </div>
+                <div class="form-group">
+                    <label for="dni">Dni:</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.dni" name="dni" id="dni">
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <button (click)="registerUser()" class="btn btn-primary btn-lg">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</div>
