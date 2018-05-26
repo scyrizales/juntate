@@ -35,7 +35,7 @@
         </activity>
         <activity
             android:name=".CrearJuntaActivity"
-            android:label="Crear Usuario"
+            android:label="Crear Junta"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ListarJuntaActivity"
