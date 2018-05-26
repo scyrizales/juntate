@@ -10,6 +10,7 @@ import { CreateAggroupmentComponent } from './components/create-aggroupment/crea
 import { CreateAggroupmentService } from './services/create-aggroupment.service';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { IndexComponent } from './components/index/index.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
     {path: '', component: IndexComponent},
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     imports: [
         BrowserModule,
         FormsModule,
+        HttpClientModule,
         RouterModule.forRoot(
             appRoutes,
             {enableTracing: true} // <-- debugging purposes only
