@@ -104,15 +104,10 @@ exports.join = (req, res) => {
 exports.sort = (req, res) => {
 
     juntaUsuarioDB.find({ junta: req.params.id }, (req, result) => {
-        // if (result.length < 6) {
-        //     res.json({ message: "Minimo 6 usuario para sortear" });
-        //     return;
-        // }
-        
         var participantes = lodash.shuffle(result);
 
         participantes.forEach(function (item, ix) {
-            item.orden = result.indexOf(item);
+            item.orden = ix;
 
             item.save(function (err, doc) {
                 if (err) return handleError(err);
