@@ -63,18 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_centerInParent="true"
                 android:id="@+id/imageViewSD"
-                android:layout_marginTop="70dp"
-                android:src="@drawable/format_icon5"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textViewSD"
-                android:layout_width="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/sample_primary"
-                android:text="No hay juntas disponibles"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:src="@drawable/sin_juntas"
                 android:layout_height="wrap_content" />
 
             <android.support.v7.widget.RecyclerView

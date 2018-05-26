@@ -22,7 +22,6 @@ public class ListarJuntaActivity extends AppCompatActivity {
     ArrayList<Junta> listaJuntas = new ArrayList<>();
     RecyclerView rvJunta;
     ImageView ivSinJunta;
-    TextView tvSinJunta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +31,9 @@ public class ListarJuntaActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
         listaJuntas = juntaDA.listar();
 
         ivSinJunta = findViewById(R.id.imageViewSD);
-        tvSinJunta = findViewById(R.id.textViewSD);
 
         rvJunta = findViewById(R.id.lista_junta);
         rvJunta.setHasFixedSize(true);
@@ -50,10 +41,8 @@ public class ListarJuntaActivity extends AppCompatActivity {
 
         if (listaJuntas.size() == 0) {
             ivSinJunta.setVisibility(View.VISIBLE);
-            tvSinJunta.setVisibility(View.VISIBLE);
         } else {
             ivSinJunta.setVisibility(View.GONE);
-            tvSinJunta.setVisibility(View.GONE);
         }
 
         JuntaAdapter adapter = new JuntaAdapter(this, listaJuntas);

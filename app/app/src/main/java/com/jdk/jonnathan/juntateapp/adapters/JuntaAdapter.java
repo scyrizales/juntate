@@ -36,11 +36,11 @@ public class JuntaAdapter extends RecyclerView.Adapter<JuntaAdapter.JuntaViewHol
     public void onBindViewHolder(JuntaViewHolder holder, int position) {
         Junta junta = lista.get(position);
 
-        holder.alias.setText(junta.getAlias());
-        holder.montoJunta.setText(junta.getMontoJunta());
-        holder.frecuenciaJunta.setText(junta.getFrecuenciaPago());
-        holder.nroIntegrantes.setText(junta.getNumeroIntegrantes());
-        holder.montoCuota.setText(junta.getMontoPago());
+        holder.alias.setText("Alías de Junta: " + junta.getAlias());
+        holder.montoJunta.setText("Monto Total de la Junta: " + junta.getMontoJunta());
+        holder.frecuenciaJunta.setText("Frecuencia de la Junta: " + junta.getFrecuenciaPago());
+        holder.nroIntegrantes.setText("Número de integrantes de la Junta: " + String.valueOf(junta.getNumeroIntegrantes()));
+        holder.montoCuota.setText("Cuota de la Junta: " + junta.getMontoPago());
 
         if (position % 2 == 0) {
             holder.rowView.setBackgroundColor(ContextCompat.getColor(mCtx, R.color.gray));
