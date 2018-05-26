@@ -3,9 +3,7 @@ const util = require('../lib/utils');
 
 exports.signUp = (req, res)=>{
     userDB.create(req.body, (err, doc) => {
-        console.log("signup");
         if (err) {
-            console.log("signup error");
             console.log(err);
             if (err.code === 11000) {
                 util.errorJson(res, { message: 'El email o el dni ya existen' });
@@ -14,7 +12,6 @@ exports.signUp = (req, res)=>{
             util.errorJson(res, err);
             return;
         }
-        console.log("signup ok");
         // res.json(doc);
         util.resJson(res, doc || {});
     });
