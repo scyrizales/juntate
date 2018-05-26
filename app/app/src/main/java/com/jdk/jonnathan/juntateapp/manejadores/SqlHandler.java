@@ -11,7 +11,7 @@ import com.jdk.jonnathan.juntateapp.dao.UsuarioDA;
 public class SqlHandler extends SQLiteOpenHelper {
 
     public static final String APP_DATABASE = "juntate.db";
-    public static final int APP_DATABASE_VERSION = 5;
+    public static final int APP_DATABASE_VERSION = 6;
 
     public SqlHandler(Context context) {
         super(context, APP_DATABASE, null, APP_DATABASE_VERSION);
