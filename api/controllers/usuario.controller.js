@@ -1,11 +1,14 @@
-var userDB = require('../data/schemas/usuario');
+const userDB = require('../data/schemas/usuario');
+const util = require('../lib/utils');
+
 exports.signUp = (req, res)=>{
     userDB.create(req.body, (err, doc) => {
         if (err) {
             res.json(err);
             return;
         }
-        res.json(doc);
+        // res.json(doc);
+        util.resJson(res, doc);
     });
 }
 
