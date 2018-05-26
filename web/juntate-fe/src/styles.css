@@ -92,3 +92,11 @@
 .featurette  .img-about img{
     width: 100%;
 }
+.table-container{
+    padding: 30px;
+}
+.table-head{
+    color: #fff;
+    background:#f37c2f;
+    font-size: 17px;
+}
