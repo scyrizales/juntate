@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_crear"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Crear Junta"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_unirse"
+        android:orderInCategory="103"
+        android:title="Unirse a Junta"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_invitar"
+        android:orderInCategory="103"
+        android:title="Invitar a Junta"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_cerrar"
+        android:orderInCategory="109"
+        android:title="Salir"
         app:showAsAction="never" />
 </menu>

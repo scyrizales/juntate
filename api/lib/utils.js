@@ -1,22 +1,23 @@
+var ObjectID = require('mongodb').ObjectID;
 exports.resJson = (res, data) => {
-    var aux = data.toObject();
-
-    if (typeof (data) === "object") resJsonObject(aux);
-    if (Array.isArray(data)) resJsonArray(aux);
-
-    res.json(aux);
+    if (Array.isArray(data)) {
+        res.json(resJsonArray(data));
+    } else if (typeof (data) === "object") {
+        res.json(resJsonObject(data));
+    }
 }
 
 resJsonObject = (data) => {
-    console.log(data);
-    if (data.password) delete data.password;
-    console.log(data);
-    if (data._id) data.id = ObjectId(data._id).toString();
-    console.log(data);
+    var aux = data.toObject();
+    if (data.password) delete aux.password;
+    if (data._id) aux.id = ObjectID(data._id).toString();
+    return aux;
 }
 
 resJsonArray = (data) => {
+    var arr = [];
     for (var i = 0; i < data.length; i++) {
-        resJsonObject(data[i]);
+        arr.push(resJsonObject(data[i]));
     }
+    return arr;
 }

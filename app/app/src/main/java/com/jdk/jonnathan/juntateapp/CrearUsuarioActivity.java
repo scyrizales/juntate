@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 
 public class CrearUsuarioActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etNombres, etCuenta, etEmail, etPassword;
+    EditText etNombres, etCuenta, etEmail, etPassword, etDni;
     Button btnRegistrar;
     String accion;
     Profile currentData;
@@ -36,6 +36,7 @@ public class CrearUsuarioActivity extends AppCompatActivity implements View.OnCl
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        etDni = findViewById(R.id.ProfileDNI);
         etNombres = findViewById(R.id.ProfileName);
         etCuenta = findViewById(R.id.ProfileAccount);
         etEmail = findViewById(R.id.ProfileEmail);
@@ -61,15 +62,12 @@ public class CrearUsuarioActivity extends AppCompatActivity implements View.OnCl
         ProfileDA profileDA = new ProfileDA();
         currentData = new Profile();
 
+        currentData.setDni(etDni.getText().toString());
         currentData.setNombre(etNombres.getText().toString());
         currentData.setCuentabancaria(etCuenta.getText().toString());
         currentData.setEmail(etEmail.getText().toString());
         currentData.setPassword(etPassword.getText().toString());
 
-        Date d = new Date();
-        int id = (d.getYear() + d.getMonth() + d.getDate() + d.getDay() + d.getHours() + d.getMinutes() + d.getSeconds());
-
-        currentData.setId(id);
         profileDA.adicionar(currentData);
 
         Snackbar.make(toolbar, "Usuario Creado", Snackbar.LENGTH_LONG).show();
