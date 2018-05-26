@@ -6,11 +6,38 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="MainActivity"
     tools:showIn="@layout/app_bar_main">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido(a)!"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:paddingTop="20dp"
+        android:paddingHorizontal="30dp"
+        android:id="@+id/bienvenido"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:src="@drawable/logo_juntate"
+        android:id="@+id/logoBienvenido"
+        android:layout_below="@id/bienvenido"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/logoBienvenido"
+        android:paddingHorizontal="30dp"
+        android:id="@+id/textoBienvenido"
+        android:text="Júntate es una aplicación que te permite ahorrar con tus amigos. A continuación selecciona una de las opciones del menú de la izquierda."
+        android:textAlignment="center" />
 
     <ImageView
         android:id="@+id/ivMain"
         android:layout_centerInParent="true"
-        android:src="@drawable/format_icon5"
+        android:src="@drawable/friends_home"
+        android:layout_below="@id/textoBienvenido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

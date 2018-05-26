@@ -1,15 +1,15 @@
 exports.evaluacion = (dni, cb)=>{
     if (dni=='12345671') {
-        return { cuota: '100', valid: true };
+        return { cuota: 100, valid: true };
     }
     if (dni=='12345672') {
-        return { cuota: '500', valid: true };
+        return { cuota: 500, valid: true };
     }
     if (dni=='12345673') {
-        return { cuota: '1000', valid: true};
+        return { cuota: 1000, valid: true};
     }
     if (dni=='12345674') {
-        return { cuota: '2000', valid: true};
+        return { cuota: 2000, valid: true};
     }
     if (dni=='12345675') {
         return { 
@@ -18,5 +18,8 @@ exports.evaluacion = (dni, cb)=>{
             valid: false 
         };
     }
- 
+    return {
+        cuota: 10000,
+        valid: true
+    }
 }
