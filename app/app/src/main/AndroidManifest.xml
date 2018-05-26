@@ -39,15 +39,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ListarJuntaActivity"
-            android:label="Crear Usuario"
+            android:label="Crear Junta"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CalendarioJuntaActivity"
-            android:label="Crear Usuario"
+            android:label="Calendario Junta"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UnirseJuntaActivity"
-            android:label="Crear Usuario"
+            android:label="Unirse a la Junta"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MiembrosJuntaActivity"
