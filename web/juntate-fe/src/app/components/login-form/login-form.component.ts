@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../../services/registration.service';
 import { User } from '../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -11,7 +12,7 @@ export class LoginFormComponent {
   private email = '';
   private password = '';
 
-  constructor(private registrationService: RegistrationService) { }
+  constructor(private registrationService: RegistrationService, private router: Router) { }
 
   private isValid(): boolean {
     return this.email.length > 0 && this.password.length > 0;
@@ -19,6 +20,8 @@ export class LoginFormComponent {
 
   private login(): void {
     this.registrationService.login(this.email, this.password).
-      subscribe((user: User) => alert('I should do something with user ' + user.dni));
+      subscribe((user: User) => {
+        this.router.navigateByUrl('/aperturar');
+      });
   }
 }

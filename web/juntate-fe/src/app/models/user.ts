@@ -28,7 +28,10 @@ export class User {
 
     // tslint:disable-next-line:member-ordering
     public static fromSend(response: any): User {
-        return new User(response.email,
+      if (!response)  {
+        return null;
+      }
+      return new User(response.email,
                         response.nombre,
                         response.nombre,
                         response.dni,
