@@ -13,7 +13,11 @@ export class RegistrationService {
     return of(this.mockedUser);
   }
 
-  public getUser() {
+  public getUser(): User {
     return this.mockedUser;
+  }
+
+  public login(email: string, password: string): Observable<User> {
+    return of(this.mockedUser);
   }
 }

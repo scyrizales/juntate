@@ -8,13 +8,15 @@ import { RegistrationFormComponent } from './components/registration-form/regist
 import { RegistrationService } from './services/registration.service';
 import { CreateAggroupmentComponent } from './components/create-aggroupment/create-aggroupment.component';
 import { CreateAggroupmentService } from './services/create-aggroupment.service';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationFormComponent,
-    CreateAggroupmentComponent
+    CreateAggroupmentComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
