@@ -1,1 +1,58 @@
+
 /* You can add global styles to this file, and also import other style files */
+
+.bg-blue {
+    background-color:#004b8c;
+}
+
+/*brand*/
+.navbar-default .navbar-brand {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+    color:#f37c2f;
+}
+
+.navbar-default .navbar-brand:visited {
+    color:#f37c2f;
+}
+
+/*menu items */
+#bs-example-navbar-collapse-1 .nav a {
+    color: white;
+}
+
+#bs-example-navbar-collapse-1 .nav a:hover {
+    color:#f37c2f;
+}
+
+#bs-example-navbar-collapse-1 .nav a:visited {
+    color:#f37c2f;
+    background: red;
+}
+
+.box-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-form {
+    max-width: 600px;
+    background:#f37c2f;
+    border-radius: 5px;
+    margin-top: 80px;
+    padding: 20px;
+    color: #fff;
+}
+.box-form .form-title{
+    color: #fff;
+    font-size: 30px;
+}

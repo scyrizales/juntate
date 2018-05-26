@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Aggroupment } from '../../models/aggroupment';
 import { Ammount } from '../../models/ammount.enum';
 import { Period } from '../../models/period.enum';
+import { RegistrationServiceService } from '../../services/registration.service';
+import { CreateAggroupmentService } from '../../services/create-aggroupment.service';
 
 @Component({
   selector: 'app-create-aggroupment',
@@ -13,7 +15,8 @@ export class CreateAggroupmentComponent {
   private ammounts: string[] = Object.keys(Ammount).filter(Number);
   private periods: string[] = Object.keys(Period).filter((e: string) => isNaN(Number(e)));
   private nbParticipants: number[] = [6, 8, 10, 12];
-  constructor() {
+  constructor(private registrationService: RegistrationServiceService,
+              private createAggroupmentService: CreateAggroupmentService) {
     this.aggroupment = new Aggroupment('', 1);
   }
 
@@ -26,5 +29,13 @@ export class CreateAggroupmentComponent {
 
   private paymentPeriodically(): number {
     return this.aggroupment.ammount / this.aggroupment.nbParticipants;
+  }
+
+  private createAggroupment(): void {
+    if (this.isValid()) {
+      const user = this.registrationService.getUser();
+      this.createAggroupmentService.createAggroupment(this.aggroupment, user)
+      .subscribe((aggroupment: Aggroupment) => alert('aggroupment created with name +' + aggroupment.name));
+    }
   }
 }

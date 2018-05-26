@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Profile implements Serializable {
 
-    private int id;
+    private String dni;
     private String nombre;
     private String cuentabancaria;
     private String email;
@@ -13,12 +13,12 @@ public class Profile implements Serializable {
     public Profile() {
     }
 
-    public int getId() {
-        return id;
+    public String getDni() {
+        return dni;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {

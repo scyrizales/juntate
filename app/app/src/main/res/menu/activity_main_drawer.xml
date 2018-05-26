@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_send"
             android:title="Crear Junta" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_send"
             android:title="Listar Juntas" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_send"
             android:title="Unirse a Junta" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_send"
             android:title="Calendario de Junta" />
     </group>
 
@@ -26,8 +26,8 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Miembros de Junta" />
+                android:icon="@drawable/ic_menu_send"
+                android:title="Administrar Miembros de Junta" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
@@ -39,7 +39,7 @@
         <menu>
             <item
                 android:id="@+id/nav_MisJunta"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_menu_send"
                 android:title="Mis Juntas" />
             <item
                 android:id="@+id/nav_Invitar"

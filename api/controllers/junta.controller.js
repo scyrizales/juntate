@@ -57,3 +57,35 @@ exports.findAll = (req, res) => {
         util.resJson(res, doc);
     });
 };
+
+exports.join = (req, res) => {
+    req.body.rol = "PARTICIPANTE";
+
+    juntaUsuarioDB.findOne(
+        {
+            junta: req.body.junta,
+            usuario: req.body.usuario
+        },
+        (err, doc) => {
+            if (err) {
+                res.json(err);
+                return;
+            }
+
+            if (doc) {
+                res.json({ message: "Ya no puede unirte a la junta" });
+                return;
+            } else {
+                juntaUsuarioDB.create(req.body, (err, doc) => {
+                    if (err) {
+                        res.json(err);
+                        return;
+                    }
+
+                    util.resJson(res, doc);
+                })
+            }
+        });
+
+
+}
