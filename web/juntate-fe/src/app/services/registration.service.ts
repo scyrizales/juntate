@@ -11,7 +11,7 @@ export class RegistrationService {
   private url = `http://45.56.107.112:3030/usuario/`;
 
   constructor(private http: HttpClient) {
-    this.user = User.fromSend(JSON.parse(localStorage.getItem('loggerUser')))
+    this.user = User.fromSend(JSON.parse(localStorage.getItem('loggedUser')))
   }
 
   public getUser(): User {
@@ -23,7 +23,7 @@ export class RegistrationService {
     return this.http.post<User>(signInUrl, { email, password })
       .map(response => {
         const loggedUser = User.fromSend(response);
-        localStorage.setItem('loggerUser', JSON.stringify(loggedUser));
+        localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
         this.user = loggedUser;
         return loggedUser;
       });
@@ -37,5 +37,10 @@ export class RegistrationService {
         this.user = loggedUser;
         return loggedUser;
       });
+  }
+
+  public logout() {
+    this.user = null;
+    localStorage.removeItem('loggedUser')
   }
 }

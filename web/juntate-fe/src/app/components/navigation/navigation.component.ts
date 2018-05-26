@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../../services/registration.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -7,13 +8,18 @@ import { RegistrationService } from '../../services/registration.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
-  constructor(private registrationService: RegistrationService) { }
+  constructor(private registrationService: RegistrationService, private router: Router) { }
 
   private isLogged(): boolean {
     return this.registrationService.getUser() != null;
   }
 
   private userId(): string {
-    return this.registrationService.getUser().id;
+    return this.registrationService.getUser().fist_name;
+  }
+
+  private logout(): void {
+    this.registrationService.logout();
+    this.router.navigateByUrl('/');
   }
 }
