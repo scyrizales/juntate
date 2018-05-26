@@ -18,4 +18,8 @@
     <color name="colorPrimaryTwo">#00bcd4</color>
     <color name="colorPrimaryDarkTwo">#0097a7</color>
     <color name="colorAccentTwo">#03A9F4</color>
+
+    <color name="gray">#CCCCCC</color>
+    <color name="smoke">#05FF01</color>
+    <color name="colorNavIcon2">#fae9f6</color>
 </resources>

@@ -10,9 +10,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_juntate"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_juntate"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -36,7 +36,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ListarJuntaActivity"
-            android:label="Crear Junta"
+            android:label="Listar Juntas"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CalendarioJuntaActivity"

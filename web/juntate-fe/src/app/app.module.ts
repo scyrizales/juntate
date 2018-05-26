@@ -12,12 +12,14 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { IndexComponent } from './components/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { ListarJuntasComponent } from './components/listar-juntas/listar-juntas.component';
 
 const appRoutes: Routes = [
     {path: '', component: IndexComponent},
     {path: 'registrarse', component: RegistrationFormComponent},
     {path: 'aperturar', component: CreateAggroupmentComponent},
-    {path: 'ingresar', component: LoginFormComponent}
+    {path: 'ingresar', component: LoginFormComponent},
+    {path: 'juntas', component: ListarJuntasComponent}
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
         CreateAggroupmentComponent,
         IndexComponent,
         LoginFormComponent,
-        NavigationComponent
+        NavigationComponent,
+        ListarJuntasComponent
     ],
     imports: [
         BrowserModule,
