@@ -60,8 +60,7 @@ public class CrearJuntaActivity extends AppCompatActivity implements View.OnClic
         if (etAlias.getText().toString().trim().length() == 0 ||
                 etMonto.getText().toString().trim().length() == 0 ||
                 etFrecuencia.getText().toString().trim().length() == 0 ||
-                etNumIntegrantes.getText().toString().trim().length() == 0 ||
-                etMontoPagoCuota.getText().toString().trim().length() == 0)
+                etNumIntegrantes.getText().toString().trim().length() == 0)
             pasovalidacion = false;
 
         return pasovalidacion;
@@ -73,6 +72,8 @@ public class CrearJuntaActivity extends AppCompatActivity implements View.OnClic
 
         if (objJunta != null) {
             juntaDA.adicionar(objJunta);
+            Snackbar.make(toolbar, "Junta Registrada exitósamente",
+                    Snackbar.LENGTH_SHORT).show();
         } else {
             Snackbar.make(toolbar, "Ingresar datos obligatorios de la Junta",
                     Snackbar.LENGTH_SHORT).show();

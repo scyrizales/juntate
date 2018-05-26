@@ -164,6 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
                 android:ems="5"
+                android:enabled="false"
                 android:hint="Monto Pago"
                 android:inputType="numberDecimal" />
 
@@ -181,6 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
                 android:ems="5"
+                android:enabled="false"
                 android:hint="Duración de la Junta"
                 android:inputType="text" />
 
