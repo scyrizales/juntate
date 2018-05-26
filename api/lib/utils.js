@@ -7,20 +7,22 @@ exports.resJson = (res, data) => {
     }
 }
 
-resJsonObject = (data) => {
+const resJsonObject = (data) => {
     var aux = data.toObject();
     if (data.password) delete aux.password;
     if (data._id) aux.id = ObjectID(data._id).toString();
     return aux;
 }
 
-resJsonArray = (data) => {
+const resJsonArray = (data) => {
     var arr = [];
     for (var i = 0; i < data.length; i++) {
         arr.push(resJsonObject(data[i]));
     }
     return arr;
 }
+
+exports.resJsonArray = resJsonArray;
 
 exports.errorJson = (res, data) => {
     data.error = true;

@@ -6,7 +6,7 @@ var valCred = require('../mocks/ValidacionCrediticia');
 var ObjectID = require('mongodb').ObjectID;
 
 exports.findOne = (req, res) => {
-    juntaDB.findById({ id: req.body.id }, (err, doc) => {
+    juntaDB.findById({ id: req.params.id }, (err, doc) => {
         if (err) {
             util.errorJson(res, err);
             return;
@@ -15,7 +15,10 @@ exports.findOne = (req, res) => {
             util.errorJson(res, { message: 'No existe la junta' });
             return;
         }
-        util.resJson(res, doc);
+        juntaUsuarioDB.find({ junta: doc._id }, (err, docs) => {
+            doc.participantes = util.resJsonArray(docs);
+            util.resJson(res, doc);
+        });
     });
 }
 
