@@ -6,7 +6,7 @@ import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class RegistrationServiceService {
-  private mockedUser: User = new User('vimurillo@gmail.com', 'Victor', 'Murillo', '0');
+  private mockedUser: User = new User('vimurillo@gmail.com', 'Victor Vladimir', 'Murillo Guerrero', '43617614');
   constructor() { }
 
   public register(user: User): Observable<User> {

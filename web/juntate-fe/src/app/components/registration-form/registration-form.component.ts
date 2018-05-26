@@ -15,6 +15,8 @@ export class RegistrationFormComponent {
   }
 
   private registerUser(): void {
-    this.registrationService.register(this.user);
+    this.registrationService.register(this.user).subscribe(
+      user => alert(' user dni is ' + user.dni)
+    );
   }
 }
