@@ -11,7 +11,7 @@ export class RegistrationFormComponent {
   private user: User;
 
   constructor(private registrationService: RegistrationServiceService) {
-    this.user = new User('' , '', '', '');
+    this.user = new User('' , '', '', '','');
   }
 
   private registerUser(): void {

@@ -7,7 +7,8 @@
 
 /*brand*/
 .navbar-default .navbar-brand {
-    font-size: 2em;
+    font-size: 2.5em;
+    font-weight: bold;
     color: white;
 }
 
@@ -50,4 +51,8 @@
     margin-top: 80px;
     padding: 20px;
     color: #fff;
+}
+.box-form .form-title{
+    color: #fff;
+    font-size: 30px;
 }
