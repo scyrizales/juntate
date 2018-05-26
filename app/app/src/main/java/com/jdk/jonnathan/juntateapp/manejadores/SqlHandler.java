@@ -37,6 +37,10 @@ public class SqlHandler extends SQLiteOpenHelper {
 
         try {
 
+            if (newVersion == 2) {
+                db.execSQL(ProfileDA.SQL_REMOVER);
+                db.execSQL(ProfileDA.SQL_CREAR);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
