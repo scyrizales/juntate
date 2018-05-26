@@ -10,6 +10,6 @@ export class Aggroupment {
         this.name = name;
         this.nbParticipants = nbParticipants;
         this.ammount = Ammount.THOUSEND;
-        this.period = Period.WEEKLY;
+        this.period = Period.SEMANAL;
     }
 }
