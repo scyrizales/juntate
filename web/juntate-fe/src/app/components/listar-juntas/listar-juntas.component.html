@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Alias</th>
+            <th scope="col">Cuota</th>
+            <th scope="col">Integrantes</th>
+            <th scope="col">Frecuencia</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hero of juntas; let i=index">
+            <td>{{ i+1 }}</td>
+            <td>{{hero.alias}}</td>
+            <td>s/.{{hero.cuota}}</td>
+            <td>{{hero.integrantes}}</td>
+            <td>{{hero.frecuencia}}</td>
+        </tr>
+    </tbody>
+</table>

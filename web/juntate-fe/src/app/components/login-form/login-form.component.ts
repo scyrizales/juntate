@@ -19,6 +19,6 @@ export class LoginFormComponent {
 
   private login(): void {
     this.registrationService.login(this.email, this.password).
-      subscribe((user: User) => alert('I should do something with user ' + user.dni));
+      subscribe((user: User) => alert('I should do something with user '));
   }
 }
