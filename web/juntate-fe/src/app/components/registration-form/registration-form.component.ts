@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
-import {RegistrationServiceService} from '../../services/registration.service';
+import {RegistrationService} from '../../services/registration.service';
 
 @Component({
     selector: 'app-registration-form',
@@ -10,7 +10,7 @@ import {RegistrationServiceService} from '../../services/registration.service';
 export class RegistrationFormComponent {
     private user: User;
 
-    constructor(private registrationService: RegistrationServiceService) {
+    constructor(private registrationService: RegistrationService) {
         this.user = new User('', '', '', '', '');
     }
 

@@ -5,12 +5,12 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.jdk.jonnathan.juntateapp.dao.ProfileDA;
+import com.jdk.jonnathan.juntateapp.dao.UsuarioDA;
 
 public class SqlHandler extends SQLiteOpenHelper {
 
     public static final String APP_DATABASE = "juntate.db";
-    public static final int APP_DATABASE_VERSION = 1;
+    public static final int APP_DATABASE_VERSION = 4;
 
     public SqlHandler(Context context) {
         super(context, APP_DATABASE, null, APP_DATABASE_VERSION);
@@ -20,7 +20,7 @@ public class SqlHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         try {
-            db.execSQL(ProfileDA.SQL_CREAR);
+            //db.execSQL(ProfileDA.SQL_CREAR);
 
 
         } catch (SQLException e) {
@@ -37,9 +37,8 @@ public class SqlHandler extends SQLiteOpenHelper {
 
         try {
 
-            if (newVersion == 2) {
-                db.execSQL(ProfileDA.SQL_REMOVER);
-                db.execSQL(ProfileDA.SQL_CREAR);
+            if (newVersion == 3) {
+                db.execSQL(UsuarioDA.SQL_CREAR);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

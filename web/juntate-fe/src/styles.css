@@ -56,3 +56,9 @@
     color: #fff;
     font-size: 30px;
 }
+.payment{
+    font-size: 6rem;
+    margin: 0;
+    font-weight: bold;
+    line-height: 120px;
+}

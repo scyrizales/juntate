@@ -12,10 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-import com.jdk.jonnathan.juntateapp.dao.ProfileDA;
+import com.jdk.jonnathan.juntateapp.dao.UsuarioDA;
 import com.jdk.jonnathan.juntateapp.entidades.Profile;
 import com.jdk.jonnathan.juntateapp.manejadores.Memoria;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -40,6 +41,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mEmailSignInButton.setOnClickListener(this);
         btnRegistrar.setOnClickListener(this);
+
+        Memoria.setManejadorBaseDatos(getApplicationContext());
     }
 
     private boolean isEmailValid(String email) {
@@ -49,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() < 4;
     }
 
     protected void login() {
@@ -60,23 +63,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Snackbar.make(rlayout, "Ingresar Password correctamente", Snackbar.LENGTH_LONG).show();
         } else {
             Memoria.setManejadorBaseDatos(getApplicationContext());
-            ProfileDA profileDA = new ProfileDA();
-            profile = profileDA.login(mEmailView.getText().toString(),
-                    mPasswordView.getText().toString());
+            UsuarioDA profileDA = new UsuarioDA();
 
-            if (profile.getDni().length() == 0)
-                Snackbar.make(rlayout, "Login Incorrecto", Snackbar.LENGTH_LONG).show();
-            else {
-                //prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                //prefs = getContext().getSharedPreferences("Login", Context.MODE_WORLD_WRITEABLE);
-                //SharedPreferences.Editor editor = prefs.edit();
-                //editor.putBoolean("registered", true);
-                //editor.commit();
+            ArrayList<Profile> profiles = profileDA.listar();
 
-                Intent intent = new Intent();
-                intent.setClass(this, MainActivity.class);
-                intent.putExtra("profile", profile);
-                startActivity(intent);
+            try {
+                profile = profileDA.login(mEmailView.getText().toString(),
+                        mPasswordView.getText().toString());
+
+                if (profile == null)
+                    Snackbar.make(rlayout, "Login Incorrecto", Snackbar.LENGTH_LONG).show();
+                else {
+                    Intent intent = new Intent();
+                    intent.setClass(this, MainActivity.class);
+                    intent.putExtra("profile", profile);
+                    startActivity(intent);
+                }
+
+            } catch (Exception ex) {
+                Snackbar.make(rlayout, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             }
         }
     }

@@ -63,32 +63,41 @@ exports.findAll = (req, res) => {
 
 exports.join = (req, res) => {
     req.body.rol = "PARTICIPANTE";
-
-    juntaUsuarioDB.findOne(
-        {
-            junta: req.body.junta,
-            usuario: req.body.usuario
-        },
-        (err, doc) => {
-            if (err) {
-                res.json(err);
+    juntaDB.findById(req.body.junta, (err, j) => {
+        usuarioDB.findById(req.body.usuario, (err, u) => {
+            var evaluacion = valCred.evaluacion(u.dni);
+            if (!evaluacion.valid || j.cuota > evaluacion.cuota) {
+                util.errorJson(res, { message: 'Tu evaluacion crediticia no es suficiente' });
                 return;
             }
 
-            if (doc) {
-                res.json({ message: "Ya no puede unirte a la junta" });
-                return;
-            } else {
-                juntaUsuarioDB.create(req.body, (err, doc) => {
+            juntaUsuarioDB.findOne(
+                {
+                    junta: req.body.junta,
+                    usuario: req.body.usuario
+                },
+                (err, doc) => {
                     if (err) {
-                        res.json(err);
+                        util.errorJson(res, err);
                         return;
                     }
 
-                    util.resJson(res, doc);
-                })
-            }
+                    if (doc) {
+                        util.errorJson(res, { message: "Ya estas inscrito en la junta" });
+                        return;
+                    } else {
+                        juntaUsuarioDB.create(req.body, (err, doc) => {
+                            if (err) {
+                                res.json(err);
+                                return;
+                            }
+
+                            util.resJson(res, doc);
+                        })
+                    }
+                });
         });
+    });
 }
 
 exports.sort = (req, res) => {
