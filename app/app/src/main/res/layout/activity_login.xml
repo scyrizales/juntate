@@ -26,6 +26,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <Space
+                android:outlineProvider="paddedBounds"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"/>
+
+
             <RelativeLayout
                 android:layout_marginTop="7dp"
                 android:layout_width="match_parent"
@@ -34,18 +40,19 @@
                 <ImageView
                     android:layout_centerHorizontal="true"
                     android:layout_width="100dp"
-                    android:src="@drawable/profile_icon_login"
+                    android:src="@drawable/logo_juntate"
                     android:layout_height="100dp" />
 
             </RelativeLayout>
 
             <TextView
                 android:layout_margin="7dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/sample_primary"
+                android:textColor="#454545"
                 android:textSize="24dp"
                 android:textStyle="bold"
+                android:textAlignment="center"
                 android:text="Iniciar sesión" />
 
             <TextView
@@ -54,11 +61,13 @@
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correo:" />
+                android:text="Correo:"
+                android:paddingHorizontal="20dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp">
 
                 <AutoCompleteTextView
                     android:id="@+id/email"
@@ -77,11 +86,13 @@
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contraseña:" />
+                android:text="Contraseña:"
+                android:paddingHorizontal="20dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp">
 
                 <EditText
                     android:id="@+id/password"
@@ -100,12 +111,13 @@
             <Space
                 android:outlineProvider="paddedBounds"
                 android:layout_width="match_parent"
-                android:layout_height="16dp" />
+                android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp">
 
                 <Button
                     android:id="@+id/btnIniciarSesion"

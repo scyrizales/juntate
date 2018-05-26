@@ -24,8 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/junta_img"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop" />
+                android:fitsSystemWindows="true" />
 
             <View
                 android:layout_width="match_parent"
