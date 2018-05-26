@@ -11,6 +11,7 @@ import { CreateAggroupmentService } from './services/create-aggroupment.service'
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { IndexComponent } from './components/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 const appRoutes: Routes = [
     {path: '', component: IndexComponent},
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
         RegistrationFormComponent,
         CreateAggroupmentComponent,
         IndexComponent,
-        LoginFormComponent
+        LoginFormComponent,
+        NavigationComponent
     ],
     imports: [
         BrowserModule,
