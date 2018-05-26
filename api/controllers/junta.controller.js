@@ -36,6 +36,10 @@ exports.create = (req, res) => {
             util.errorJson(res, err);
             return;
         }
+        if (!doc) {
+            util.errorJson(res, { message: 'No existe el usuario' });
+            return;
+        }
         var evaluacion = valCred.evaluacion(doc.dni);
 
         if (!evaluacion.valid || req.body.cuota > evaluacion.cuota) {
