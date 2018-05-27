@@ -44,6 +44,7 @@ export class CreateAggroupmentComponent implements OnInit {
     private createAggroupment(): void {
         if (this.isValid()) {
             const user = this.registrationService.getUser();
+            debugger;
             this.createAggroupmentService.createAggroupment(this.aggroupment, user)
                 .subscribe((aggroupment: Aggroupment) => this.router.navigateByUrl('/juntas'));
         }
