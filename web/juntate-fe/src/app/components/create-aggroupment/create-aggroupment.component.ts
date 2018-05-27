@@ -45,7 +45,7 @@ export class CreateAggroupmentComponent implements OnInit {
         if (this.isValid()) {
             const user = this.registrationService.getUser();
             this.createAggroupmentService.createAggroupment(this.aggroupment, user)
-                .subscribe((aggroupment: Aggroupment) => alert('aggroupment created with name +' + aggroupment.name));
+                .subscribe((aggroupment: Aggroupment) => this.router.navigateByUrl('/juntas'));
         }
     }
 }

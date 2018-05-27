@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { JuntaService } from '../../services/junta.service';
-import { Junta } from '../../models/junta';
+import { Aggroupment as Junta } from '../../models/aggroupment';
 
 @Component({
   selector: 'app-listar-juntas',
