@@ -1,11 +1,11 @@
 <div class="box-container">
     <div class="box-form">
         <form>
-            <legend class="form-title">Crear Nueva Junta</legend>
+            <legend class="form-title">Junta: {{ junta.alias }}</legend>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="name">Nombre de junta</label>
-                    <div>{{ junta.alias }}</div>
+                    <label for="name">Integrantes</label>
+                    <div>{{ junta.integrantes }}</div>
                 </div>
                 <div class="form-group">
                     <label for="ammount">Monto de cuota:</label>
@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="period">Periodo:</label>
-                    <div>{{ junta.periodo }}</div>
+                    <div>{{ junta.frecuencia }}</div>
                 </div>
                 <div class="form-group">
                     <label for="period">Usuario:</label>

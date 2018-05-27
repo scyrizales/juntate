@@ -7,7 +7,7 @@ var ObjectID = require('mongodb').ObjectID;
 var lodash = require('lodash');
 
 exports.findOne = (req, res) => {
-    juntaDB.findById(req.params.id, (err, doc) => {
+    juntaDB.findById(req.params.id).populate('creador').exec((err, doc) => {
         if (err) {
             util.errorJson(res, err);
             return;
