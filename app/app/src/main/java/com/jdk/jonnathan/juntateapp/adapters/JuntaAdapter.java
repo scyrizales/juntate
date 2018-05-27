@@ -36,7 +36,7 @@ public class JuntaAdapter extends RecyclerView.Adapter<JuntaAdapter.JuntaViewHol
     public void onBindViewHolder(JuntaViewHolder holder, int position) {
         Junta junta = lista.get(position);
 
-        holder.alias.setText("Alías de Junta: " + junta.getAlias());
+        holder.alias.setText(junta.getAlias());
         holder.montoJunta.setText("Monto Total de la Junta: " + junta.getMontoJunta());
         holder.frecuenciaJunta.setText("Frecuencia de la Junta: " + junta.getFrecuenciaPago());
         holder.nroIntegrantes.setText("Número de integrantes de la Junta: " + String.valueOf(junta.getNumeroIntegrantes()));

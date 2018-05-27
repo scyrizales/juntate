@@ -23,4 +23,13 @@ export class JuntaService {
       });
   }
 
+  public getJunta(id): Observable<Junta> {
+    const url = this.url + '/findOne/' + id;
+
+    return this.http.get<Junta>(url)
+      .map(response => {
+        return response;
+      })
+  }
+
 }

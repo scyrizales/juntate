@@ -46,4 +46,8 @@ export class RegistrationService {
         return userResponse;
       });
   }
+
+  public logout() {
+    localStorage.removeItem('loggedUser');
+  }
 }

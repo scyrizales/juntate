@@ -13,13 +13,15 @@ import { IndexComponent } from './components/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ListarJuntasComponent } from './components/listar-juntas/listar-juntas.component';
+import { JuntaDetalleComponent } from './components/junta-detalle/junta-detalle.component';
 
 const appRoutes: Routes = [
     {path: '', component: IndexComponent},
     {path: 'registrarse', component: RegistrationFormComponent},
     {path: 'aperturar', component: CreateAggroupmentComponent},
     {path: 'ingresar', component: LoginFormComponent},
-    {path: 'juntas', component: ListarJuntasComponent}
+    {path: 'juntas', component: ListarJuntasComponent},
+    {path: 'junta/:id', component: JuntaDetalleComponent}
 ];
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
         IndexComponent,
         LoginFormComponent,
         NavigationComponent,
-        ListarJuntasComponent
+        ListarJuntasComponent,
+        JuntaDetalleComponent
     ],
     imports: [
         BrowserModule,

@@ -21,7 +21,7 @@ export class LoginFormComponent {
   private login(): void {
     this.registrationService.login(this.email, this.password).
       subscribe((user: User) => {
-        this.router.navigateByUrl('/aperturar');
+        this.router.navigateByUrl('/juntas');
       });
   }
 }
