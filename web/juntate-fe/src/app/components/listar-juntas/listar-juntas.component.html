@@ -13,13 +13,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let hero of juntas; let i=index">
+        <tr *ngFor="let junta of juntas; let i=index">
             <td>{{ i+1 }}</td>
-            <td>{{hero.alias}}</td>
-            <td>s/.{{hero.cuota}}</td>
-            <td>{{hero.integrantes}}</td>
-            <td>{{hero.frecuencia}}</td>
-            <td><button class="btn btn-primary btn-xs">Unirse</button></td>
+            <td>{{junta.alias}}</td>
+            <td>s/.{{junta.cuota}}</td>
+            <td>{{junta.integrantes}}</td>
+            <td>{{junta.frecuencia}}</td>
+            <td>
+              <button class="btn btn-primary btn-xs">Unirse</button>
+              <button class="btn btn-primary btn-xs" (click)="navigate(junta._id)">Ver</button>
+            </td>
         </tr>
         </tbody>
     </table>
