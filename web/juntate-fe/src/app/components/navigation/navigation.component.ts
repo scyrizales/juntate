@@ -15,7 +15,7 @@ export class NavigationComponent {
   }
 
   private userId(): string {
-    return this.registrationService.getUser().fist_name;
+    return this.registrationService.getUser().email;
   }
 
   private logout(): void {

@@ -2,29 +2,29 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user';
 import {of} from 'rxjs/observable/of';
-import 'rxjs/Rx';
+import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class RegistrationService {
-  private user: User = null;
   private url = `http://45.56.107.112:3030/usuario/`;
 
   constructor(private http: HttpClient) {
-    this.user = User.fromSend(JSON.parse(localStorage.getItem('loggedUser')))
   }
 
   public getUser(): User {
-    return this.user;
+    return User.fromSend(JSON.parse(localStorage.getItem('loggerUser')));
   }
 
-  public login(email:String, password:String): Observable<User> {
+  public login(email: string, password: string): Observable<User> {
     const signInUrl = this.url + 'signin';
     return this.http.post<User>(signInUrl, { email, password })
       .map(response => {
-        const loggedUser = User.fromSend(response);
-        localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
-        this.user = loggedUser;
+        let loggedUser = null;
+        if (!('error' in response)) {
+          loggedUser = User.fromSend(response);
+          localStorage.setItem('loggerUser', JSON.stringify(response));
+        }
         return loggedUser;
       });
   }
@@ -32,15 +32,22 @@ export class RegistrationService {
   public register(user: User): Observable<User> {
     const signInUrl = this.url + 'signUp';
     return this.http.post<User>(signInUrl, user.toSend())
+      .pipe(
+        catchError(() => {
+          alert('error!');
+          return of(null); })
+      )
       .map(response => {
-        const loggedUser = User.fromSend(response);
-        this.user = loggedUser;
-        return loggedUser;
+        let userResponse = null;
+        if (!('error' in response)) {
+          userResponse = User.fromSend(response);
+          localStorage.setItem('loggerUser', JSON.stringify(response));
+        }
+        return userResponse;
       });
   }
 
   public logout() {
-    this.user = null;
-    localStorage.removeItem('loggedUser')
+    localStorage.removeItem('loggedUser');
   }
 }

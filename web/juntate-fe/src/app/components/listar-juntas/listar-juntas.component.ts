@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { JuntaService } from '../../services/junta.service';
-import { Junta } from '../../models/junta';
+import { Aggroupment as Junta } from '../../models/aggroupment';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,8 +28,8 @@ export class ListarJuntasComponent implements OnInit {
     this.getJuntas();
   }
 
-  navigate(id:String):void {
-    this.router.navigateByUrl("/junta/" + id);
+  navigate(id: String): void {
+    this.router.navigateByUrl('/junta/' + id);
   }
 
 }
