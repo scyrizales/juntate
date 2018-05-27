@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { JuntaService } from '../../services/junta.service';
-import { Junta } from '../../models/junta';
+import { Aggroupment as Junta } from '../../models/aggroupment';
 
 import { ActivatedRoute } from '@angular/router'
 
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router'
   providers: [JuntaService]
 })
 export class JuntaDetalleComponent implements OnInit {
-  junta:Junta = new Junta();
+  junta: Junta;
   constructor(private juntaService: JuntaService, private route: ActivatedRoute) { }
 
   ngOnInit() {
