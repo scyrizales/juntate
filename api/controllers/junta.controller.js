@@ -26,7 +26,7 @@ exports.findOne = (req, res) => {
             usuarioDB.find({}, (err, users) => {
                 var participantes = util.resJsonArray(docs);
                 d.participantes = participantes.map((p) => {
-                    return users.filter(u => u._id === p.usuario).shift();
+                    return users.filter(u =>  ObjectID(u._id).toString() === ObjectID(p.usuario).toString()).shift();
                 });
                 util.resJson(res, d);
             });
