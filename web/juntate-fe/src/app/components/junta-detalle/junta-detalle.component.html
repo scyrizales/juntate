@@ -34,12 +34,14 @@
           <tr>
               <th scope="col">#</th>
               <th scope="col">Nombre</th>
+              <th scope="col">Email</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let p of junta.participantes; let i=index">
               <td>{{ i+1 }}</td>
               <td>{{p.nombre}}</td>
+              <td>{{p.email}}</td>
           </tr>
           </tbody>
       </table>
