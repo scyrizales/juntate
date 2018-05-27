@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { JuntaService } from '../../services/junta.service';
-import { Junta } from '../../models/junta';
+import { Aggroupment as Junta } from '../../models/aggroupment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-juntas',
@@ -13,7 +14,7 @@ export class ListarJuntasComponent implements OnInit {
 
   private juntas: Junta[];
 
-  constructor(private juntaService: JuntaService) { }
+  constructor(private juntaService: JuntaService, private router: Router) { }
 
   getJuntas() {
     this.juntaService
@@ -25,6 +26,10 @@ export class ListarJuntasComponent implements OnInit {
 
   ngOnInit() {
     this.getJuntas();
+  }
+
+  navigate(id: String): void {
+    this.router.navigateByUrl('/junta/' + id);
   }
 
 }

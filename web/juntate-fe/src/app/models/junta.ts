@@ -3,7 +3,7 @@ export class Junta {
     cuota: Number;
     integrantes: Number;
     frecuencia: String;
-
+    participantes: any;
 
     constructor() {
     }

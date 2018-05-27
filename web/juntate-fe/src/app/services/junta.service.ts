@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
-import { Junta } from '../models/junta';
+import { Aggroupment as Junta } from '../models/aggroupment';
 
 @Injectable()
 export class JuntaService {
@@ -18,6 +18,15 @@ export class JuntaService {
     const url = this.url + '/findAll';
 
     return this.http.get<Junta[]>(url)
+      .map(response => {
+        return response;
+      });
+  }
+
+  public getJunta(id): Observable<Junta> {
+    const url = this.url + '/findOne/' + id;
+
+    return this.http.get<Junta>(url)
       .map(response => {
         return response;
       })

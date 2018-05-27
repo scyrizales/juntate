@@ -37,7 +37,7 @@ export class User {
                         response.dni,
                         '',
                         response.accountNumber,
-                        response.id);
+                        response.id || response._id);
     }
 
 }

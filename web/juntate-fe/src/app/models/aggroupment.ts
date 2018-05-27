@@ -12,4 +12,12 @@ export class Aggroupment {
         this.ammount = Ammount.THOUSEND;
         this.period = Period.SEMANAL;
     }
+
+    public toSend(creatorId: string): any {
+        return {alias: this.name,
+                cuota: this.ammount,
+                integrantes: this.nbParticipants,
+                frecuencia: this.period.toString().toLowerCase(),
+                creador: creatorId};
+    }
 }

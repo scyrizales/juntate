@@ -7,7 +7,7 @@ var ObjectID = require('mongodb').ObjectID;
 var lodash = require('lodash');
 
 exports.findOne = (req, res) => {
-    juntaDB.findById(req.params.id, (err, doc) => {
+    juntaDB.findById(req.params.id).populate('creador').exec((err, doc) => {
         if (err) {
             util.errorJson(res, err);
             return;
@@ -23,8 +23,13 @@ exports.findOne = (req, res) => {
                 return;
             }
             
-            d.participantes = util.resJsonArray(docs);
-            util.resJson(res, d);
+            usuarioDB.find({}, (err, users) => {
+                var participantes = util.resJsonArray(docs);
+                d.participantes = participantes.map((p) => {
+                    return users.filter(u =>  ObjectID(u._id).toString() === ObjectID(p.usuario).toString()).shift();
+                });
+                util.resJson(res, d);
+            });
         });
     });
 }
@@ -34,6 +39,10 @@ exports.create = (req, res) => {
     usuarioDB.findById(body.creador, (err, doc) => {
         if (err) {
             util.errorJson(res, err);
+            return;
+        }
+        if (!doc) {
+            util.errorJson(res, { message: 'No existe el usuario' });
             return;
         }
         var evaluacion = valCred.evaluacion(doc.dni);

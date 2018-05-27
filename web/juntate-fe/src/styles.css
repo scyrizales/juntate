@@ -42,6 +42,9 @@
     color:#f37c2f;
 }
 
+.navbar-header .navbar-brand{
+    color: #fff!important;
+}
 /*menu items */
 #bs-example-navbar-collapse-1 .nav a {
     color: white;
@@ -91,4 +94,12 @@
 }
 .featurette  .img-about img{
     width: 100%;
+}
+.table-container{
+    padding: 30px;
+}
+.table-head{
+    color: #fff;
+    background:#f37c2f;
+    font-size: 17px;
 }

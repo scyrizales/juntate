@@ -1,20 +1,29 @@
-<table class="table">
-    <thead>
+<div class="table-container">
+    <h1>Juntas disponibles</h1>
+    <br>
+    <table class="table table-striped ">
+        <thead class="table-head">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Alias</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Cuota</th>
             <th scope="col">Integrantes</th>
             <th scope="col">Frecuencia</th>
+            <th></th>
         </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let hero of juntas; let i=index">
+        </thead>
+        <tbody>
+        <tr *ngFor="let junta of juntas; let i=index">
             <td>{{ i+1 }}</td>
-            <td>{{hero.alias}}</td>
-            <td>s/.{{hero.cuota}}</td>
-            <td>{{hero.integrantes}}</td>
-            <td>{{hero.frecuencia}}</td>
+            <td>{{junta.alias}}</td>
+            <td>s/.{{junta.cuota}}</td>
+            <td>{{junta.integrantes}}</td>
+            <td>{{junta.frecuencia}}</td>
+            <td>
+              <button class="btn btn-primary btn-xs">Unirse</button>
+              <button class="btn btn-primary btn-xs" (click)="navigate(junta._id)">Ver</button>
+            </td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>

@@ -10,7 +10,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li>
+              <li *ngIf="isLogged()">
                     <a href="/aperturar">Aperturar una Junta</a>
                 </li>
                 <li *ngIf="!isLogged()">
@@ -24,6 +24,9 @@
                 </li>
                 <li *ngIf="isLogged()">
                     <a href="#">Bienvenido {{userId()}}</a>
+                </li>
+                <li *ngIf="isLogged()">
+                  <a href="#" (click)="logout()">Logout</a>
                 </li>
                 <!-- <li>
                 <a href="#">is looged + {{isLogged()}}</a>
