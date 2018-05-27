@@ -23,8 +23,13 @@ exports.findOne = (req, res) => {
                 return;
             }
             
-            d.participantes = util.resJsonArray(docs);
-            util.resJson(res, d);
+            usuarioDB.find({}, (err, users) => {
+                var participantes = util.resJsonArray(docs);
+                d.participantes = participantes.map((p) => {
+                    return users.filter(u => u._id === p.usuario).shift();
+                });
+                util.resJson(res, d);
+            });
         });
     });
 }
